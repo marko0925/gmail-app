@@ -1,0 +1,111 @@
+include head.jade
+body(id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="fond")
+	//incluye la barra de top
+	include header.jade
+	script(type='text/javascript').
+					$(document).on('ready',function(){
+						$("button[name=articulos]").click(function(){
+							console.log($(this).attr('id'));
+							$("#listaArticulos").load('/listArticulo',{articulo:$(this).attr('id')},function(response,status,xhr){
+								if(status=="success"){
+									console.log("exito");
+								}
+								else{
+									console.log("error");
+								}
+							});
+						});
+
+						
+					});
+	
+	div(class="container espacio-arriba")
+		div(class="row")
+			div(class="col-md-3 encajar")
+
+				div(class="panel panel-default")
+					div(class="panel-heading")
+						<i class="fa fa-file" aria-hidden="true"></i> Articulos
+					div(class="panel-body")
+						div(class="list-group")
+						each item in listaC
+							button(type="button" class="list-group-item" name="articulos" id="#{item.nombre}").
+								#{item.nombre}
+
+			div(class="col-md-9 margen-left")
+				div(class="col-sm-12 col-lg-12 col-md-12")
+					div(class="panel panel-default")
+						div(class="panel-heading")
+							<i class="fa fa-shopping-cart" aria-hidden="true"></i> Carrito
+							<h5 class='pull-right text-muted small' id='precioTotal'> </h5>
+						div(class="panel-body")
+							div(class="list-group" id='listCarrito')
+								<a  class='list-group-item' >
+								<i class='fa fa-file fa-fw'></i> No hay articulos en el carrito
+								</a>
+				div(class="row" id="listaArticulos")
+					
+	<div class="modal fade" tabindex="-1" role="dialog" id='modalbuy'>
+	<div class="modal-dialog">
+	<div class="modal-content">
+	<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	<h4 class="modal-title" ><font color='black'>Datos del cliente</font></h4>
+	</div>
+	<div class="modal-body">
+	<form action='/comprar' method='post' onsubmit='return comprobarCampos()'>
+	<div class="form-group has-feedback" id='hasErN'>
+	<label for="focusnombre"><font color='black'>Nombre</font></label>
+	<input type="text" class="form-control" name='nombrecliente' id='focusnombre'  placeholder="Nombre">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	<div class="form-group has-feedback" id='hasErA'>
+	<label for="focusapellido"><font color='black'>Apellido</font></label>
+	<input type="text" class="form-control" name='apellidocliente' id='focusapellido' placeholder="Apellido">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	<div class="form-group  has-feedback" id='hasErC'>
+	<label for="focuscedula"><font color='black'>Cedula</font></label>
+	<input type="number" class="form-control" name='cedulacliente' id='focuscedula' placeholder="Cedula">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	<div class="form-group has-feedback" id='hasErT'>
+	<label for="focustelefono"><font color='black'>Telefono</font></label>
+	<input type="number" class="form-control" name='telefonocliente' id='focustelefono' placeholder="Telefono">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	<div class="form-group has-feedback" id='hasErD'>
+	<label for="focusdireccion"><font color='black'>Direccion</font></label>
+	<input type="text" class="form-control"  name='direccioncliente' id='focusdireccion' placeholder="Direccion">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	<div class="form-group has-feedback" id='hasErP'>
+	<label for="focusdireccion"><font color='black'>Nombre de tu PC</font></label>
+	<input type="text" class="form-control"  name='nombrepc' id='focuspc' placeholder="Nombre de tu PC">
+	<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+	</div>
+	
+	</div>
+	<div class="modal-footer">
+	<button type="reset" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+	<input type="submit" class="btn btn-primary" value='Facturar'>
+	</form>
+	</div>
+	</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->	
+			
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+	br
+
+							

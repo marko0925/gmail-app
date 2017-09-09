@@ -1,0 +1,12 @@
+include head.jade
+body(id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" class="fond")
+	//incluye la barra de top
+	include header.jade
+	div(class="container espacio-arriba")
+		div(class="row").
+			<div class='jumbotron'>
+			<h1><font color=black>Compra Exitosa!</font></h1>
+			<p><font color=red>Costo $#{precioC}</font></p>
+			<p><font color=black>Se ha facturado correctamente la compra</font></p>
+			<p><a class='btn btn-primary btn-lg' href='/design' role='button'>Volver</a></p>
+			</div>

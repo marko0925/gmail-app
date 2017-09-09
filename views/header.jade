@@ -1,0 +1,40 @@
+nav(class="navbar navbar-custom navbar-fixed-top" role="navigation")
+			div(class="container")
+				div(class="navbar-header")
+					button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse")
+						i(class="fa fa-bars")
+					if url==="index"
+						a(class="navbar-brand page-scroll" href="#page-top")
+							i(class="fa fa-fire" aria-hidden="true")
+								span(class="light letra_blanca_sombreada").
+									&nbsp; PC's
+					else 
+						a(class="navbar-brand page-scroll" href="/")
+							i(class="fa fa-fire" aria-hidden="true")
+								span(class="light letra_blanca_sombreada").
+									&nbsp; PC's
+				div(class="collapse navbar-collapse navbar-right navbar-main-collapse")
+					ul(class="nav navbar-nav")
+						-var info=url;
+						if info==="index"
+							li(class="hidden")
+								a(href="#page-top")
+							li
+								a(class="page-scroll" href="#about").
+									Nosotros
+							li
+								a(class="page-scroll" href="#contact").
+									Contacto
+						else if info==="design" || info==="compra"
+							li(class="hidden")
+								a(href="#page-top")
+							li
+								a(class="page-scroll" href="/").
+									Regresar
+						else if info==="info"
+							li(class="hidden")
+								a(href="#page-top")
+							li
+								a(class="page-scroll" href="/design").
+									Regresar
+						

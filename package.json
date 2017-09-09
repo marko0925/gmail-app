@@ -1,0 +1,20 @@
+{
+  "name": "prueba",
+  "version": "1.0.0",
+  "description": "Esta es una prueba de NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marlon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "pg": "^4.5.5",
+    "router": "^1.1.4",
+    "sqlanywhere": "^1.0.10"
+  }
+}
